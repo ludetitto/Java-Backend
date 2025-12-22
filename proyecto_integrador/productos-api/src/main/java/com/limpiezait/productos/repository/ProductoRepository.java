@@ -37,11 +37,13 @@ public class ProductoRepository {
 		}
 	}
 
-	public Producto findByNombre(String nombre) {
+	public Set<Producto> findByNombre(String nombre) {
+		Set<Producto> productosCoincidentes = new HashSet<Producto>();
+		
 		for(Producto producto : productos) {
-			if(producto.getNombre().equals(nombre))
-				return producto;
+			if(producto.getNombre().toLowerCase().contains(nombre.toLowerCase()))
+				productosCoincidentes.add(producto);
 		}
-		return null;
+		return productosCoincidentes;
 	}
 }

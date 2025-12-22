@@ -34,7 +34,7 @@ public class ProductoService {
 		productoRepository.deleteById(id);
 	}
 	
-	public Producto findByName(String nombre) {
+	public Set<Producto> findByName(String nombre) {
 		return productoRepository.findByNombre(nombre);
 	}
 }

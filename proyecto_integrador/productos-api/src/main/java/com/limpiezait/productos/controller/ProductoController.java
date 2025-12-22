@@ -24,6 +24,12 @@ public class ProductoController {
 		return new ResponseEntity<>(producto, HttpStatus.OK);
 	}
 	
+	@GetMapping("/nombre/{nombre}")
+	public ResponseEntity<Set<Producto>> getProductosByNombre(@PathVariable("nombre") String nombre) {
+		Set<Producto> productos = productoService.findByName(nombre);
+		return new ResponseEntity<>(productos, HttpStatus.OK);
+	}
+	
 	@PostMapping
 	public ResponseEntity<Producto> createProducto(@RequestBody Producto producto) {
 		Producto savedProducto = productoService.save(producto);
