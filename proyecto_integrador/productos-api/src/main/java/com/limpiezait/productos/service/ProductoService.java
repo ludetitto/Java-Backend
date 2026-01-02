@@ -2,9 +2,12 @@ package com.limpiezait.productos.service;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.limpiezait.productos.model.Producto;
 import com.limpiezait.productos.repository.ProductoRepository;
 
+@Service
 public class ProductoService {
 	private static ProductoService instance = new ProductoService();
 	private ProductoRepository productoRepository;
